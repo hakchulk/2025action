@@ -7,5 +7,16 @@ jobs:
   My-Deploy-Job:
     runs-on: ubuntu-latest
     steps:
-      - name: Hello World 직기
-        run: echo "Hello World 2"
+      - name: 다중 run
+        run: |
+          echo "Good"
+          echo "Morning"
+      - name: 변수 값 보기
+        run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+      - name: 리눅스 명령 실행
+        run: |
+          ls
+          pwd
+          whoami

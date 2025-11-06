@@ -1,4 +1,4 @@
-name: github action 실행 테스트
+name: github action ssh to ec2
 on:
   push:
     branches:
@@ -6,6 +6,16 @@ on:
 jobs:
   My-Deploy-Job:
     runs-on: ubuntu-latest
+    env:
+      REMOTE_DIR: /home/ubuntu/2025action
+
     steps:
-      - name: Hello World 직기
-        run: echo "Hello World"
+      - name: ssh to ec2
+        uses: appleboy/ssh-action@1.0.3
+        with:
+          host: ${{secrets.EC2_HOST}}
+          username: ubuntu
+          key: ${{secrets.EC2_SSH_KEY}}
+          script: |
+            cd ${{env.REMOTE_DIR}}
+            pwd

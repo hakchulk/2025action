@@ -19,6 +19,6 @@ jobs:
           script: |
             cd ${{env.REMOTE_DIR}}
             pwd
-            git pull
+            sudo git pull
             npm ci
             npm run build

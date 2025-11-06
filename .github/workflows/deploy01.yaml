@@ -15,8 +15,8 @@ jobs:
         run: |
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
-      - name: 리눅스 명령 실행
+      - name: github secret
         run: |
-          ls
+          echo ${{secrets.MY_NAME}}
           pwd
           whoami
